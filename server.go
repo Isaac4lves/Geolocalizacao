@@ -12,17 +12,21 @@ type HomeData struct {
 	Codigopais string
 	Estado     string
 	Municipio  string
+	Latitude   string
+	Longitude  string
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("index.html")
-
+	ip := Getip()
 	data := HomeData{
-		IP:         RequestApi("[seu ip]", "ip"),
-		Pais:       RequestApi("[seu ip]", "pais"),
-		Codigopais: RequestApi("[seu ip]", "codigoPais"),
-		Estado:     RequestApi("[seu ip]", "estado"),
-		Municipio:  RequestApi("[seu ip]", "municipio"),
+		IP:         RequestApi(ip, "ip"),
+		Pais:       RequestApi(ip, "pais"),
+		Codigopais: RequestApi(ip, "codigoPais"),
+		Estado:     RequestApi(ip, "estado"),
+		Municipio:  RequestApi(ip, "municipio"),
+		Latitude:   RequestApi(ip, "latitude"),
+		Longitude:  RequestApi(ip, "longitude"),
 	}
 
 	t.Execute(w, data)
