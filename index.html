@@ -6,11 +6,18 @@
     <title>Golang Site</title>
 </head>
 <body>
+    <!-- https://dribbble.com/shots/18669035-Xplore-Travel-Website-Version -->
+    <!-- https://ip-api.com/ -->
+    <!-- https://meuip.com/ -->
     <h1>Geolocalização</h1>
     <p id="ip">{{.IP}}</p>
     <p id="pais">{{.Pais}}</p>
     <p id="codigo">{{.Codigopais}}</p>
     <p id="municipio">{{.Municipio}}</p>
     <p id="estado">{{.Estado}}</p>
+    <p>{{.Longitude}}</p>
+    <p>{{.Latitude}}</p>
+    <img src="https://cache.ip-api.com/{{.Longitude}},{{.Latitude}},10">
+
 </body>
 </html>
